@@ -1,4 +1,4 @@
-# Fitness Javascrip App
+# Fitness Javascript App
 
 A **Fitness Club** é uma aplicação frontend que permite aos usuários explorar uma vasta lista de exercícios físicos com detalhes sobre músculos trabalhados, equipamentos utilizados e vídeos demonstrativos. A aplicação consome dados da [ExerciseDB](https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb) para fornecer informações sobre os exercícios.
 
@@ -46,5 +46,3 @@ npm start
 # ou use
 yarn start
 
-# 6. Acesse a aplicação em seu navegador no endereço:
-# http://localhost:3000
