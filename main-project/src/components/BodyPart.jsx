@@ -1,25 +1,22 @@
 import React from 'react'
-import { Box } from '@mui/material'
-import BodyPart from './BodyPart'
+import { Stack,Typography } from '@mui/material'
 
-const HorizontalScrollbar = ({ data, bodyPart, setBodyPart }) => {
+import Dumbell from '../assets/icon1.png'
 
-
+const BodyPart = ({item, setBodyPart, bodyPart}) => {
   return (
-    <div style={{ display: 'flex', overflowX: 'auto' }}>
-      {data.map((item) => (
-        <Box
-          key={item.id || item}
-          id={item.id || item} // Alterado de itemId para id
-          title={item.id || item}
-          m='0 40px'
-          sx={{ cursor: 'pointer' }} // Adiciona um estilo de cursor
-        >
-          <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} />
-        </Box>
-      ))}
-    </div>
+    <Stack type='button' alignItems='center' justifyContent='center' className='bodyPart-card' sx={{
+        borderTop: bodyPart === item ? '4px solid #3A1212' : '',
+        backgroundColor: 'lightgray',
+        borderBottomLeftRadius: '20px',
+        width: '270px',
+        height: '280px',
+        cursor: 'pointer',
+        gap: '47px'
+      }}>
+      <img src={Dumbell} alt='icon' style={{width:'40px',height:'40px'}} className='body-part-icon'/>
+    </Stack>
   )
 }
 
-export default HorizontalScrollbar;
+export default BodyPart
