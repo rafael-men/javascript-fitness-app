@@ -5,21 +5,21 @@ import HorizontalScrollbar from './HorizontalScrollbar';
 
 const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   const [search, setSearch] = useState('');
-  const [bodyParts, setBodyParts] = useState([])
+  const [bodyParts, setBodyParts] = useState([]);
 
   useEffect(() => {
     const fetchExercisesData = async () => {
       const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
       
-      setBodyParts(['all', ...bodyPartsData]); 
+      setBodyParts(['all', ...bodyPartsData]);
     };
 
-    fetchExercisesData(); 
+    fetchExercisesData();
   }, []);
 
   const handleSearch = async () => {
     if (search) {
-      const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions); 
+      const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
 
       const searchedExercises = exercisesData.filter((exercise) => 
         exercise.name.toLowerCase().includes(search) || 
@@ -34,9 +34,9 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   };
 
   return (
-    <Stack alignItems='center' mt='37px' justifyContent='center' p='20px'>
-      <Typography fontWeight={700} sx={{ fontSize: { lg: '44px', xs: '30px' } }} mb='50px' textAlign='center'>
-        Exercises that you need to know
+    <Stack alignItems='center' mt='37px' justifyContent='center' p='20px' sx={{background: 'linear-gradient(180deg, black, gray)'}}>
+      <Typography fontWeight={700} sx={{ fontSize: { lg: '44px', xs: '30px' } , color:'white'}} mb='50px' textAlign='center'>
+        Exercises that you should try:
       </Typography>
       <Box position='relative' mb='72px'>
         <TextField
@@ -70,7 +70,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
         </Button>
       </Box>
       <Box sx={{ position: 'relative', width: '100%', p: '20px' }}>
-        <HorizontalScrollbar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart} /> 
+        <HorizontalScrollbar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart} />
       </Box>
     </Stack>
   );
